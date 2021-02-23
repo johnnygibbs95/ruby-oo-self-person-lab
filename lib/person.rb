@@ -1,7 +1,7 @@
 class Person
-    attr_accessor :bank_account, :happiness, :hygiene
+    attr_accessor :bank_account
     attr_writer 
-    attr_reader :name
+    attr_reader :name, :hygiene, :happiness
 
     def initialize(name)
         @name = name
@@ -10,13 +10,15 @@ class Person
         @hygiene = 8
     end
 
-    def happiness
+    def happiness=(happiness)
+        @happiness = happiness
         @happiness = 10 if @happiness > 10
         @happiness = 0 if @happiness < 0
         @happiness
     end
 
-    def hygiene
+    def hygiene=(hygiene)
+        @hygiene = hygiene
         @hygiene = 10 if @hygiene > 10
         @hygiene = 0 if @hygiene < 0
         @hygiene
@@ -31,7 +33,7 @@ class Person
     end
 
     def get_paid(salary)
-        @bank_account += salary
+        self.bank_account += salary
         'all about the benjamins'
     end
 
